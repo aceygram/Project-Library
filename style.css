@@ -1,0 +1,249 @@
+:root {
+  --primary-color: #1e293b;
+  --primary-background: #f0eef1;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: 'Mochiy Pop One', sans-serif;
+}
+
+html {
+  position: relative;
+}
+
+body {
+  background-color: var(--primary-background);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.3rem 4rem;
+  background-color: #1e293b;
+}
+
+.header .left {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  fill: rgb(255, 255, 255);
+}
+
+.header h1 {
+  font-size: 2.5rem;
+}
+
+.header svg {
+  width: 60px;
+}
+
+.header button {
+  padding: 0.8rem 1rem;
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  border: none;
+  border-radius: 10px;
+  background-color: var(--primary-background);
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.header button:hover {
+  filter: brightness(90%);
+}
+
+.main-container {
+  /* min-height: 100vh;
+  width: 100%;
+  background-color: red; */
+  display: grid;
+  place-items: center;
+}
+
+.addBooks {
+  margin: 1rem;
+  padding: 0.8rem 1rem;
+  font-size: clamp(1rem, 1.6vw, 1.5rem);
+ border-radius: 10px;
+ border: none;
+ cursor: pointer;
+ transition: 1s;
+}
+
+.addBooks:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--primary-color);
+  fill: var(--primary-color);
+  font-weight: bold;
+  font-size: 0.8rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--primary-background);
+}
+
+.footer svg {
+  width: 25px;
+  cursor: pointer;
+}
+
+.footer .icons {
+  display: flex;
+  gap: 10px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  /* display: none; */
+}
+
+.modal {
+}
+
+form {
+  width: 350px;
+  background-color: var(--primary-background);
+  border: none;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* form h3, */
+form input,
+form input::placeholder,
+form button {
+  font-size: 1.1rem;
+}
+
+form h3 {
+  padding-bottom: 1rem;
+  font-weight: black;
+}
+
+form input[type='text'],
+form input[type='number'] {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 15px 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+input[type='checkbox'] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: grey;
+  width: 1.15rem;
+  height: 1.15rem;
+  border: 0.15rem solid currentColor;
+  border-radius: 0.15rem;
+  transform: translateY(0.15rem);
+  display: grid;
+  place-content: center;
+}
+
+.checkbox input[type='checkbox'] + label {
+  margin-top: 0.1rem;
+}
+
+.checkbox {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0.5rem 0 1.5rem 0;
+}
+
+.checkbox div {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem;
+  place-items: center;
+}
+
+input[type='checkbox']::before {
+  content: '';
+  width: 0.65rem;
+  height: 0.65rem;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--primary-color);
+}
+
+input[type='checkbox']:checked::before {
+  transform: scale(1);
+}
+
+form button {
+  display: block;
+  width: 100%;
+  padding: 10px 10px 13px 10px;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  border: 5px solid var(--primary-color);
+  color: white;
+  outline: none;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  font-weight: bold;
+ transition: 1s;
+}
+
+form button:hover {
+  filter: contrast(90%);
+  border: 5px solid var(--primary-color);
+  background-color: var(--primary-background);
+  color: var(--primary-color);
+}
+
+@media only screen and (max-width: 1200px) {
+  .header {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .header {
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    padding-top: 1rem;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .header svg {
+    width: 50px;
+  }
+
+  form {
+    width: 300px;
+  }
+}

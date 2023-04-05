@@ -13,6 +13,11 @@ function Book(title, author, year, pages, read, notRead) {
 }
 
 function addBookToLibrary() {
+  document.getElementById('addBookModal').className = 'overlay';
+  document.querySelector('.close').onclick = () => {
+    document.getElementById('addBookModal').className = 'form-hide';
+  };
+
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -52,14 +57,100 @@ function addBookToLibrary() {
 
     console.log(myLibrary);
 
-    bookTitle.value = ' ';
-    bookAuthor.value = ' ';
-    bookYear.value = ' ';
-    bookPages.value = ' ';
+    const books = document.getElementById('books');
+    const div = document.createElement('div');
+    div.className = 'test';
+    books.appendChild(div);
+
+    if (myLibrary.length < 4) {
+      books.className = 'autofill';
+    } else {
+      books.className = 'autofit';
+    }
+
+    const div1 = document.createElement('div');
+    div1.className = 'title';
+
+    //  });
+    //   for (let i = 0; i < myLibrary.length; i++) {
+    //   if (i === myLibrary.length) {
+    //     return `${myLibrary[i].title}`
+    //   }
+    //   div1.textContent = `${myLibrary[i].title}`;
+    // }
+
+    // for title
+    myLibrary.forEach((object, index) => {
+      if (index === myLibrary.length) {
+        return `${myLibrary[index].title}`;
+      }
+
+      const title = `${myLibrary[index].title}`;
+      const words = title.split(' ');
+      const capitalizedWords = words.map((word) => word.charAt(0).toUpperCase() + word.slice(1));
+      const capitalizedTitle = capitalizedWords.join(' ');
+
+      div1.textContent = capitalizedTitle;
+      return true;
+    });
+    div.appendChild(div1);
+
+    // for author
+    const div2 = document.createElement('div');
+    div2.className = 'author';
+
+    myLibrary.forEach((object, index) => {
+      if (index === myLibrary.length) {
+        return `${myLibrary[index].author}`;
+      }
+
+      const author = `${myLibrary[index].author}`;
+      const words = author.split(' ');
+      const capitalizedWords = words.map((word) => word.charAt(0).toUpperCase() + word.slice(1));
+      const capitalizedAuthor = capitalizedWords.join(' ');
+
+      div2.textContent = capitalizedAuthor;
+      return true;
+    });
+    div.appendChild(div2);
+
+    // for year
+    const div3 = document.createElement('div');
+    div3.className = 'year';
+    myLibrary.forEach((object, index) => {
+      if (index === myLibrary.length) {
+        return `${myLibrary[index].year}`;
+      }
+
+      div3.textContent = `${myLibrary[index].year}`;
+      return true;
+    });
+
+    div.appendChild(div3);
+
+    // for pages
+    const div4 = document.createElement('div');
+    div4.className = 'pages';
+    myLibrary.forEach((object, index) => {
+      if (index === myLibrary.length) {
+        return `${myLibrary[index].pages}`;
+      }
+
+      div4.textContent = `${myLibrary[index].pages} Pages`;
+      return true;
+    });
+    div.appendChild(div4);
+
+    bookTitle.value = null;
+    bookAuthor.value = null;
+    bookYear.value = null;
+    bookPages.value = null;
     bookRead.value = ' ';
     bookNotRead.value = ' ';
     bookRead.checked = false;
     bookNotRead.checked = false;
+
+    document.getElementById('addBookModal').classList = 'form-hide';
   }
 
   const form = document.querySelector('form');

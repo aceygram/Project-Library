@@ -25,6 +25,7 @@ body {
   align-items: center;
   padding: 1.3rem 4rem;
   background-color: #1e293b;
+  box-shadow: 0px 3px 3px 0px #888;
 }
 
 .header .left {
@@ -62,17 +63,19 @@ body {
   width: 100%;
   background-color: red; */
   display: grid;
-  place-items: center;
+  padding: 0 1.5rem 3rem 1.5rem;
 }
 
 .addBooks {
   margin: 1rem;
   padding: 0.8rem 1rem;
   font-size: clamp(1rem, 1.6vw, 1.5rem);
- border-radius: 10px;
- border: none;
- cursor: pointer;
- transition: 1s;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: 1s;
+  place-self: center;
+  color: var(--primary-color);
 }
 
 .addBooks:hover {
@@ -115,10 +118,11 @@ body {
   z-index: 1;
   display: grid;
   place-items: center;
-  /* display: none; */
+  transition: 1s;
 }
 
-.modal {
+.form-hide {
+  display: none;
 }
 
 form {
@@ -129,6 +133,16 @@ form {
   padding: 1rem 1.5rem;
   font-size: 1.2rem;
   text-align: center;
+  position: relative;
+}
+
+form svg {
+  width: 50px;
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  fill: var(--primary-background);
+  cursor: pointer;
 }
 
 /* form h3, */
@@ -141,6 +155,7 @@ form button {
 form h3 {
   padding-bottom: 1rem;
   font-weight: black;
+  color: var(--primary-color);
 }
 
 form input[type='text'],
@@ -171,6 +186,7 @@ input[type='checkbox'] {
 
 .checkbox input[type='checkbox'] + label {
   margin-top: 0.1rem;
+  color: var(--primary-color);
 }
 
 .checkbox {
@@ -211,7 +227,7 @@ form button {
   cursor: pointer;
   margin-bottom: 1rem;
   font-weight: bold;
- transition: 1s;
+  transition: 1s;
 }
 
 form button:hover {
@@ -221,10 +237,87 @@ form button:hover {
   color: var(--primary-color);
 }
 
+.test {
+  width: none;
+  background-color: var(--primary-color);
+  padding: 1.5rem 2rem;
+  color: white;
+  text-align: center;
+  box-shadow: 3px 3px 3px 0px #888;
+  border-radius: 10px;
+}
+
+.test .title {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.test .author,
+.test .year,
+.test .pages {
+  margin-bottom: 1rem;
+}
+
+.test .card-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.5rem;
+}
+
+.test .read {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.test .read:hover {
+  filter: brightness(90%);
+}
+
+.test svg {
+  width: 30px;
+  fill: white;
+  cursor: pointer;
+}
+
+.test svg:hover {
+  filter: brightness(90%);
+}
+
+.autofit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.autofill {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+body::-webkit-scrollbar {
+  width: 1rem;
+}
+
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+}
+
 @media only screen and (max-width: 1200px) {
   .header {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  .autofill {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 }
 

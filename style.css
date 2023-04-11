@@ -108,7 +108,8 @@ body {
   gap: 10px;
 }
 
-.overlay {
+.overlay,
+.confirm {
   position: fixed;
   top: 0;
   left: 0;
@@ -119,6 +120,45 @@ body {
   display: grid;
   place-items: center;
   transition: 1s;
+}
+
+.delete-book {
+  background-color: var(--primary-background);
+  width: 300px;
+  text-align: center;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+}
+
+.delete-book div {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 1.5rem;
+}
+
+.delete-book div button {
+  padding: 3px 10px 5px 10px;
+  background-color: rgb(102, 212, 102);
+  color: white;
+  border: 2px solid rgb(102, 212, 102);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.delete-book div button + button {
+  border: 2px solid rgb(207, 86, 86);
+  background-color: rgb(207, 86, 86);
+}
+
+.delete-book div button:hover {
+  background-color: white;
+  color: rgb(102, 212, 102);
+}
+
+.delete-book div button + button:hover {
+  background-color: white;
+  color: rgb(207, 86, 86);
 }
 
 .form-hide {
@@ -245,6 +285,8 @@ form button:hover {
   text-align: center;
   box-shadow: 3px 3px 3px 0px #888;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .test .title {
@@ -276,7 +318,9 @@ form button:hover {
 }
 
 .test svg {
-  width: 30px;
+  background-image: url("data:image/svg+xml,%3Csvg fill='white' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ctitle%3Edelete%3C/title%3E%3Cpath d='M19 4H15.5L14.5 3H9.5L8.5 4H5V6H19M6 19A2 2 0 0 0 8 21H16A2 2 0 0 0 18 19V7H6V19Z' /%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  width: 40px;
   fill: white;
   cursor: pointer;
 }

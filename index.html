@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="header">
@@ -26,9 +29,7 @@
 
     <div class="main-container">
       <button class="addBooks" onclick="addBookToLibrary()">+ Add Book</button>
-      <div id="books">
-        
-      </div>
+      <div id="books"></div>
     </div>
 
     <div class="footer">
@@ -62,8 +63,13 @@
     </div>
 
     <div id="addBookModal" class="form-hide">
-      <form action="">
-        <svg class="close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>close-circle</title><path d="M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z" /></svg>
+      <form action="" id="addBookForm">
+        <svg class="close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <title>close-circle</title>
+          <path
+            d="M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z"
+          />
+        </svg>
         <h3>Add a new book</h3>
         <label for="title">
           <input type="text" id="title" placeholder="Title" />
@@ -82,13 +88,19 @@
             <input type="checkbox" id="read" value="true" />
             <label for="read">Read</label>
           </div>
-          <div>
-            <input type="checkbox" id="not-read" value="true" />
-            <label for="not-read">Not Read</label>
-          </div>
         </div>
         <button type="submit" class="submit">Submit</button>
       </form>
+    </div>
+
+    <div id="deleteBookModal" class="form-hide">
+      <div class="delete-book">
+        <p>Are you sure you want to delete this book?</p>
+        <div>
+          <button id="yes">Yes</button>
+          <button id="no">No</button>
+        </div>
+      </div>
     </div>
 
     <script src="main.js"></script>
